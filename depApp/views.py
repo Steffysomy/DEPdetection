@@ -149,7 +149,8 @@ def paAttendTest(request):
         ins =Prediction.objects.create(test=data,patient=user,video=filename,status='Test Attended')
         ins.save()
         from prediction.emotions import main
-        vid = f"D:/pro final/static/media/{ins.video}"
+        os.path.join(os.getcwd(), ‘static’, ‘media’, ins.video)
+    \\vid = f"D:/pro final/static/media/{ins.video}"
         print(vid)
         angry, disgust, fear, happy, neutral, sad, surprise = main(vid)
         dRes = int(angry) + int(fear) + int(sad) + int(int(neutral) /2) + int(int(disgust) /2)
