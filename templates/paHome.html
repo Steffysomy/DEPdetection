@@ -1,0 +1,16 @@
+{% extends 'pabase.html' %}
+{% block content %}
+<div style="margin: 100px;">
+    <form method="POST">
+        {% csrf_token %}
+        <h3 style="margin: 20px;">Welcome to DepDepression </h3>
+ 
+        <p>&nbsp &nbsp     &nbsp &nbsp &nbsp &nbsp     Through our website, we aim to provide a non-intrusive, accessible, 
+            and proactive approach to mental health screening, empowering individuals to
+             seek support and intervention sooner. By leveraging the latest advancements in 
+             AI and compassionate support systems, we strive to create a world where depression detection
+              is seamless, stigma-free, and leads to timely intervention, ultimately improving the well-being 
+              of individuals worldwide.</p>
+        </form>
+        </div>
+{% endblock %}

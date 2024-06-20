@@ -1,0 +1,68 @@
+{% extends 'commonbase.html' %}
+{% block content %}
+<style>
+	td,
+	th {
+		padding: 10px;
+	}
+	table {
+		margin: auto;
+	}
+</style>
+<div style="margin: 100px;">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 style="text-align: center;">Patient Registration</h3>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" class="form-control" name="name" pattern="[a-zA-Z ]+" required /></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea class="form-control" name="address" required ></textarea></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><input type="text" class="form-control" name="phone" pattern="[6789][0-9]{9}" maxlength="10" required /></td>
+            <tr>
+                <td>Age</td>
+                <td><input type="text" class="form-control" name="age" pattern="[0-9]{2}" maxlength="2" required /></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" class="" name="gender" value="Male" required /> Male <input type="radio" class="" value="Female" name="gender" required /> Female</td>
+            </tr>
+            <tr>    
+                <td>ID Proof</td>
+                <td><input type="file" class="form-control" name="file" required /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" class="form-control" name="email" required /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" class="form-control" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required /></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td><input type="password" class="form-control" name="password2" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary" name="btnSubmit" required /></td>
+            </tr>
+        </table>
+        
+    </form>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg);
+    
+               
+</script>
+
+{% endblock %}

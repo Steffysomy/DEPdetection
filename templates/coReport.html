@@ -1,0 +1,65 @@
+{% extends 'cobase.html' %}
+{% block content %}
+<style>
+	td,
+	th {
+		padding: 10px;
+	}
+	table {
+		margin: auto;
+	}
+</style>
+<div style="margin: 100px;">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 style="text-align: center;">Reports</h3>
+        <table>
+            <tr>
+                <td>Report</td>
+                <td><textarea class="form-control" name="report" required ></textarea></td>
+            </tr>
+            <tr>
+                <td>Document</td>
+                <td><input type="file" class="form-control" name="document" required /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary" name="btnSubmit" required /></td>
+            </tr>
+        </table>
+        
+    </form>
+    <table border="0" style="margin:auto;" class="table table-secondary table-striped table-hover"> 
+
+        <tr>
+            <th>Sl/No.</th>
+            <th>DATE</th>
+            <th>REPORT</th>
+            <th>DOCUMENT</th>
+            <th>ACTION</th>
+        
+        </tr>
+        {% for d in data %}
+        <tr>
+            
+            <td>{{forloop.counter}}</td>
+            <td>{{d.date}}</td>
+            <td>{{d.report}}</td>
+            <td><a href="/static/media/{{d.document}}" class="btn btn-info" target="_blank">DOCUMENT</a></td>
+            <td>
+                <a href="/coDeleteReport?id={{d.id}}&cid={{id}}" class="btn btn-danger">Delete</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg);
+    
+               
+</script>
+
+{% endblock %}

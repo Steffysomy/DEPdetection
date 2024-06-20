@@ -1,0 +1,44 @@
+{% extends 'pabase.html' %}
+{% block content %}
+<style>
+	td,
+	th {
+		padding: 10px;
+	}
+	table {
+		margin: auto;
+	}
+</style>
+<div style="margin: 100px;">
+    <h3 style="text-align: center;">Reports</h3>
+    <h4>Counsellor: {{cou.name}}</h4>
+    <table border="0" style="margin:auto;" class="table table-secondary table-striped table-hover"> 
+
+        <tr>
+            <th>Sl/No.</th>
+            <th>DATE</th>
+            <th>REPORT</th>
+            <th>DOCUMENT</th>
+        
+        </tr>
+        {% for d in data %}
+        <tr>
+            
+            <td>{{forloop.counter}}</td>
+            <td>{{d.date}}</td>
+            <td>{{d.report}}</td>
+            <td><a href="/static/media/{{d.document}}" class="btn btn-info" target="_blank">DOCUMENT</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg);
+    
+               
+</script>
+
+{% endblock %}

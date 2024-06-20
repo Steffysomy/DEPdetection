@@ -1,0 +1,36 @@
+{% extends 'pabase.html' %}
+{% block content %}
+<div style="margin: 100px;">
+    <div class="w3-services-grids py-lg-4 text-center" style="padding: 20px;">
+		<div class="fea-gd-vv row">
+			{% for i in data %}
+			<div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+				<div class="feature-gd icon-yellow">
+					<div class="info" style="margin-top: 50px">
+						<h3>{{i.title}}</h3>
+                        <hr>
+						<ul>
+							<li class="cary-li-w3-agileits">
+								<div class="snipcart-details top_brand_home_details">
+									<form action="#" method="post">
+										<fieldset>
+											<a href="/paAttendTest?id={{i.id}}"
+												><input
+													type="button"
+													name="submit"
+													value="Attend Test"
+													class="btn btn-primary"
+											/></a>
+										</fieldset>
+									</form>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
